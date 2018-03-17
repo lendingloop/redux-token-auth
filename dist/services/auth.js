@@ -72,9 +72,9 @@ exports.getUserAttributesFromResponse = function (userAttributes, response) {
     var invertedUserAttributes = utility_1.invertMapKeysAndValues(userAttributes);
     var userAttributesBackendKeys = Object.keys(invertedUserAttributes);
     var userAttributesToReturn = {};
-    Object.keys(response.data.data).forEach(function (key) {
+    Object.keys(response.data).forEach(function (key) {
         if (userAttributesBackendKeys.indexOf(key) !== -1) {
-            userAttributesToReturn[invertedUserAttributes[key]] = response.data.data[key];
+            userAttributesToReturn[invertedUserAttributes[key]] = response.data[key];
         }
     });
     return userAttributesToReturn;
